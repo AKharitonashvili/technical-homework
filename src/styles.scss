@@ -142,3 +142,7 @@ a {
     @apply text-inherit opacity-75;
   }
 }
+
+.mat-mdc-unelevated-button {
+  border-radius: 0.375rem !important;
+}

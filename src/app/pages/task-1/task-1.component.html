@@ -1,20 +1,33 @@
-<section>
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
+<section class="flex flex-col gap-4">
+  <app-button class="max-w-3xl" [text]="'Add Job'" />
+  <mat-card appearance="outlined">
+    <section class="flex flex-col gap-4 p-4">
+      <app-button class="max-w-sm" [text]="'Remove job'" [color]="'warn'" />
 
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz
-        breeds of dog from Japan. A small, agile dog that copes very well with
-        mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+      <app-input [label]="'Enter company name'" />
+
+      <app-input [label]="'Enter company web page'" />
+
+      <app-textarea [label]="'Enter company description'" />
+
+      <app-button [text]="'Add Position'" />
+
+      <mat-card appearance="outlined">
+        <section class="flex flex-col gap-4 p-4">
+          <app-button class="max-w-sm" [text]="'Remove job'" [color]="'warn'" />
+
+          <app-input [label]="'Enter position name'" />
+
+          <app-input [label]="'Enter position level'" />
+
+          <app-textarea [label]="'Enter position description'" />
+
+          <section class="flex justify-between gap-4">
+            <app-calendar class="max-w-3xl" [label]="'From'" />
+            <app-calendar class="max-w-3xl" [label]="'To'" />
+          </section>
+        </section>
+      </mat-card>
+    </section>
   </mat-card>
 </section>

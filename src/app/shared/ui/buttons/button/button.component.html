@@ -1,0 +1,10 @@
+<button
+  mat-flat-button
+  class="w-full"
+  [ngClass]="{
+    '!bg-green-600': color === 'positive',
+    '!bg-red-600': color === 'warn',
+  }"
+>
+  {{ text }}
+</button>
