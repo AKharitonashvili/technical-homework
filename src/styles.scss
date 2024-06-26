@@ -161,6 +161,9 @@ a {
   border-radius: 6px;
   padding: 8px;
   background-color: white;
+  &.ng-invalid:not(.ng-untouched) {
+    border: 1px solid red !important;
+  }
 }
 
 mat-label {

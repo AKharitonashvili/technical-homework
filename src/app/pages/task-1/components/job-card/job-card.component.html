@@ -1,6 +1,6 @@
 <section class="flex flex-col gap-4">
   @if (formGroup) {
-    <form [formGroup]="formGroup">
+    <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
       <mat-card appearance="outlined">
         <mat-card-header>
           <h1 class="text-3xl font-bold">Job Form</h1>
@@ -13,15 +13,14 @@
             (click)="removeJob.emit()"
           />
 
-          <app-input
+          <!-- Custom Input -->
+          <app-custom-input-form-field
             [label]="'Enter company name'"
-            [formGroup]="formGroup"
             [inputControl]="formGroup.controls.companyName"
           />
 
           <app-input
             [label]="'Enter company web page'"
-            [formGroup]="formGroup"
             [inputControl]="formGroup.controls.companyWebPage"
           />
 

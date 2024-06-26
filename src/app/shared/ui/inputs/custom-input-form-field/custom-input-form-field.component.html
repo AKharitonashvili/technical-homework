@@ -1,0 +1,9 @@
+<section class="flex flex-col">
+  <mat-label class="text-sm">{{ label }}</mat-label>
+  <app-custom-input class="w-full" matInput [formControl]="inputControl" />
+  @if (inputControl.touched || !inputControl.pristine) {
+    @for (item of inputControl.errors | inputErrorToText; track $index) {
+      <mat-error>{{ item }}</mat-error>
+    }
+  }
+</section>

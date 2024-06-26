@@ -15,6 +15,8 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JobFormArray } from '../../models/form.models';
 import { JobPositionComponent } from '../job-position/job-position.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { CustomInputComponent } from '../../../../shared/ui/inputs/custom-input/custom-input.component';
+import { CustomInputFormFieldComponent } from '../../../../shared/ui/inputs/custom-input-form-field/custom-input-form-field.component';
 
 @Component({
   selector: 'app-job-card',
@@ -29,6 +31,8 @@ import { MatDividerModule } from '@angular/material/divider';
     ReactiveFormsModule,
     JobPositionComponent,
     MatDividerModule,
+    CustomInputComponent,
+    CustomInputFormFieldComponent,
   ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.scss',

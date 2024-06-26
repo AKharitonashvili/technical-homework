@@ -1,4 +1,7 @@
 <mat-form-field floatLabel="always" class="w-full">
   <mat-label>{{ label }}</mat-label>
   <input matInput [formControl]="inputControl" />
+  @for (item of inputControl.errors | inputErrorToText; track $index) {
+    <mat-error>{{ item }}</mat-error>
+  }
 </mat-form-field>

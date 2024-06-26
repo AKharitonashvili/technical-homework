@@ -6,11 +6,19 @@ import { TextareaComponent } from '../../shared/ui/inputs/textarea/textarea.comp
 import { ButtonComponent } from '../../shared/ui/buttons/button/button.component';
 import { CalendarComponent } from '../../shared/ui/calendar/calendar/calendar.component';
 import { AutocompleteInputComponent } from '../../shared/ui/inputs/autocomplete-input/autocomplete-input.component';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { JobFormArray, PositionFormArray } from './models/form.models';
 import { JobCardComponent } from './components/job-card/job-card.component';
 import { DatePipe, NgClass, UpperCasePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
+import { positionLevelValidator } from '../../shared/validators/position.validators';
+import { urlValidator } from '../../shared/validators/urls.validators';
 
 @Component({
   selector: 'app-task-1',
@@ -43,9 +51,18 @@ export class Task1Component {
 
   generateCompanyForm(): FormGroup<JobFormArray> {
     return new FormGroup({
-      companyName: new FormControl<string>('', { nonNullable: true }),
-      companyWebPage: new FormControl<string>('', { nonNullable: true }),
-      companyDescription: new FormControl<string>('', { nonNullable: true }),
+      companyName: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
+      companyWebPage: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required, urlValidator()],
+      }),
+      companyDescription: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
       positions: new FormArray<FormGroup<PositionFormArray>>([
         this.generatePositionForm(),
       ]),
@@ -54,19 +71,33 @@ export class Task1Component {
 
   generatePositionForm(): FormGroup<PositionFormArray> {
     return new FormGroup({
-      positionName: new FormControl<string>('', { nonNullable: true }),
-      positionDescription: new FormControl<string>('', { nonNullable: true }),
+      positionName: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
+      positionDescription: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
       positionLevel: new FormControl<'Junior' | 'Middle' | 'Senior'>('Junior', {
         nonNullable: true,
+        validators: [positionLevelValidator()],
       }),
-      dateFrom: new FormControl<string>('', { nonNullable: true }),
-      dateTo: new FormControl<string>('', { nonNullable: true }),
+      dateFrom: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      dateTo: new FormControl<string>('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
     });
   }
 
   addCompanyForm() {
     this.jobFormArray.push(this.generateCompanyForm());
     console.log(this.jobFormArray.value);
+    console.log(this.jobFormArray);
   }
 
   addPositionForm(FormGroup: FormGroup) {
@@ -82,10 +113,8 @@ export class Task1Component {
   }
 
   addPosition(index: number) {
-    console.log(
-      this.jobFormArray.controls[index].controls.positions.push(
-        this.generatePositionForm(),
-      ),
+    this.jobFormArray.controls[index].controls.positions.push(
+      this.generatePositionForm(),
     );
   }
 

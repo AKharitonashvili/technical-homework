@@ -12,4 +12,7 @@
       <mat-option [value]="option">{{ option }}</mat-option>
     }
   </mat-autocomplete>
+  @for (item of inputControl.errors | inputErrorToText; track $index) {
+    <mat-error>{{ item }}</mat-error>
+  }
 </mat-form-field>

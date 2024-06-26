@@ -4,6 +4,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text.pipe';
 
 @Component({
   selector: 'app-autocomplete-input',
@@ -13,6 +14,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    InputErrorToTextPipe,
   ],
   templateUrl: './autocomplete-input.component.html',
   styleUrl: './autocomplete-input.component.scss',
