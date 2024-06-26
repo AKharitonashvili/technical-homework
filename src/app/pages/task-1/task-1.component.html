@@ -12,11 +12,14 @@
 
       <app-button [text]="'Add Position'" />
 
-      <mat-card appearance="outlined">
+      <mat-card appearance="outlined" class="secondary-card">
         <section class="flex flex-col gap-4 p-4">
           <app-button class="max-w-sm" [text]="'Remove job'" [color]="'warn'" />
 
-          <app-input [label]="'Enter position name'" />
+          <app-autocomplete-input
+            [label]="'Enter position name'"
+            [autoCompleteOptions]="['Junion', 'Middle', 'Senior']"
+          />
 
           <app-input [label]="'Enter position level'" />
 

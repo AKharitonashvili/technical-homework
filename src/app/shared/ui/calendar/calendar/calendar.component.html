@@ -1,9 +1,15 @@
-<mat-form-field floatLabel="always" class="w-full">
-  <mat-label>{{ label }}</mat-label>
-  <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" />
-  <mat-datepicker-toggle
-    matIconSuffix
-    [for]="datepicker"
-  ></mat-datepicker-toggle>
-  <mat-datepicker #datepicker> </mat-datepicker>
-</mat-form-field>
+<section class="flex flex-col">
+  <mat-label class="m-0 text-sm">{{ label }}</mat-label>
+  <mat-form-field
+    floatLabel="always"
+    class="w-full"
+    (click)="datepicker.open()"
+  >
+    <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" />
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="datepicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #datepicker [xPosition]="'end'"> </mat-datepicker>
+  </mat-form-field>
+</section>
