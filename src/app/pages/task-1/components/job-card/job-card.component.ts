@@ -14,6 +14,7 @@ import { TextareaComponent } from '../../../../shared/ui/inputs/textarea/textare
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JobFormArray } from '../../models/form.models';
 import { JobPositionComponent } from '../job-position/job-position.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-job-card',
@@ -27,6 +28,7 @@ import { JobPositionComponent } from '../job-position/job-position.component';
     AutocompleteInputComponent,
     ReactiveFormsModule,
     JobPositionComponent,
+    MatDividerModule,
   ],
   templateUrl: './job-card.component.html',
   styleUrl: './job-card.component.scss',

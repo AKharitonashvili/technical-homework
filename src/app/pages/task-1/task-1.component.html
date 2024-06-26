@@ -1,12 +1,52 @@
 <section class="flex flex-col gap-8 px-10 py-4">
   <app-button class="max-w-3xl" [text]="'Add Job'" (click)="addCompanyForm()" />
-  @for (formGroup of jobFormArray.controls; track $index) {
+  @for (jobFormGroup of jobFormArray.controls; track $index) {
     <app-job-card
-      [formGroup]="formGroup"
+      [formGroup]="jobFormGroup"
       (removeJob)="removeJob($index)"
       (addPosition)="addPosition($index)"
       (removePosition)="removePosition($event, $index)"
     />
-    <hr />
+    <mat-divider />
+  }
+</section>
+<section class="flex flex-col gap-8 px-10 py-4">
+  <h1 class="text-3xl font-bold">Result:</h1>
+  @for (jobFormValue of jobFormArray.value; track $index) {
+    <section class="flex flex-col gap-2">
+      <h3>
+        Company:
+        <a
+          target="_blank"
+          [ngClass]="{ 'text-blue-400': jobFormValue.companyWebPage }"
+          [href]="jobFormValue.companyWebPage"
+        >
+          {{ jobFormValue.companyName | uppercase }}
+        </a>
+      </h3>
+      <div>
+        <h3>Description: {{ jobFormValue.companyDescription }}</h3>
+      </div>
+      <section class="grid grid-cols-3 gap-4">
+        @for (item of jobFormValue.positions; track $index) {
+          <div class="rounded-md border border-solid border-gray-600 p-4">
+            <div class="flex justify-between gap-4">
+              <h3>
+                Position: {{ item.positionName }}
+                @if (item.positionLevel; as level) {
+                  | {{ level }}
+                }
+              </h3>
+              <p>
+                {{ item.dateFrom | date: "MM/dd/yy" }} -
+                {{ item.dateTo | date: "MM/dd/yy" }}
+              </p>
+            </div>
+            <h3>Description: {{ item.positionDescription }}</h3>
+          </div>
+        }
+      </section>
+    </section>
+    <mat-divider />
   }
 </section>

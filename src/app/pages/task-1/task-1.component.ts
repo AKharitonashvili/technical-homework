@@ -6,21 +6,11 @@ import { TextareaComponent } from '../../shared/ui/inputs/textarea/textarea.comp
 import { ButtonComponent } from '../../shared/ui/buttons/button/button.component';
 import { CalendarComponent } from '../../shared/ui/calendar/calendar/calendar.component';
 import { AutocompleteInputComponent } from '../../shared/ui/inputs/autocomplete-input/autocomplete-input.component';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormRecord,
-} from '@angular/forms';
-import {
-  Company,
-  JobFormArray,
-  Position,
-  PositionFormArray,
-  ToFormGroup,
-} from './models/form.models';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { JobFormArray, PositionFormArray } from './models/form.models';
 import { JobCardComponent } from './components/job-card/job-card.component';
+import { DatePipe, NgClass, UpperCasePipe } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-task-1',
@@ -33,6 +23,10 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     CalendarComponent,
     AutocompleteInputComponent,
     JobCardComponent,
+    UpperCasePipe,
+    NgClass,
+    MatDividerModule,
+    DatePipe,
   ],
   templateUrl: './task-1.component.html',
   styleUrl: './task-1.component.scss',
