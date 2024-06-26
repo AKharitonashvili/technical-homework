@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() text!: string;
+  @Input({ required: true }) text!: string;
+  @Input() disabled!: boolean;
   @Input() color: 'positive' | 'warn' = 'positive';
 }

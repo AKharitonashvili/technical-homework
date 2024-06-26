@@ -23,7 +23,6 @@ export class CustomInputComponent {
   onTouched: any = () => {};
 
   onInput(event: any): void {
-    console.log(event);
     this.value = event.target.value;
     this.onChange(this.value);
     this.onTouched();

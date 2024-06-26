@@ -19,6 +19,6 @@ import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-  @Input() label!: string;
+  @Input({ required: true }) label!: string;
   @Input({ required: true }) inputControl!: FormControl;
 }

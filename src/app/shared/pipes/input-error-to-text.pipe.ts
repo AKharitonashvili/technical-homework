@@ -23,7 +23,6 @@ export class InputErrorToTextPipe implements PipeTransform {
           break;
       }
     });
-    console.log(map);
     return Array.from(map.values());
   }
 }

@@ -1,0 +1,41 @@
+@if (vm$ | async; as vm) {
+  <section class="flex flex-col gap-4">
+    <section>
+      <form (submit)="submit($event)" class="flex flex-col gap-4">
+        <app-input [label]="'Movie title'" [inputControl]="titleControl" />
+
+        <app-button [disabled]="titleControl.invalid" [text]="'Search'" />
+      </form>
+    </section>
+
+    @if (vm.loading) {
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    @if (vm.error) {
+      <mat-card class="flex w-full justify-center p-4">
+        <section class="max-w-sm border border-solid border-red-500">
+          <mat-icon>
+            <span class="material-symbols-outlined"> warning </span>
+          </mat-icon>
+        </section>
+      </mat-card>
+    } @else {
+      <section class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        @for (movie of vm.movies; track $index) {
+          <mat-card appearance="outlined" class="p-4">
+            <mat-card-header>
+              <h1 class="flex h-20">{{ movie.title }}</h1>
+            </mat-card-header>
+            <img
+              class="h-[18.75rem] w-full"
+              mat-card-image
+              [src]="movie.image?.url"
+              alt=""
+            />
+          </mat-card>
+        }
+      </section>
+    }
+  </section>
+}

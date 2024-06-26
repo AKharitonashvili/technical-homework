@@ -96,8 +96,6 @@ export class Task1Component {
 
   addCompanyForm() {
     this.jobFormArray.push(this.generateCompanyForm());
-    console.log(this.jobFormArray.value);
-    console.log(this.jobFormArray);
   }
 
   addPositionForm(FormGroup: FormGroup) {
