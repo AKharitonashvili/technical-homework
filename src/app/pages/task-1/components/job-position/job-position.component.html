@@ -1,0 +1,41 @@
+@if (formGroup) {
+  <mat-card appearance="outlined" class="secondary-card">
+    <section class="flex flex-col gap-4 p-4">
+      <app-button
+        class="max-w-sm"
+        [text]="'Remove position'"
+        [color]="'warn'"
+        (click)="removePosition.emit()"
+      />
+
+      <app-input
+        [label]="'Enter position name'"
+        [inputControl]="formGroup.controls.positionName"
+      />
+
+      <app-autocomplete-input
+        [label]="'Enter position level'"
+        [autoCompleteOptions]="['Junion', 'Middle', 'Senior']"
+        [inputControl]="formGroup.controls.positionLevel"
+      />
+
+      <app-textarea
+        [label]="'Enter position description'"
+        [inputControl]="formGroup.controls.positionDescription"
+      />
+
+      <section class="flex justify-between gap-4">
+        <app-calendar
+          class="max-w-3xl"
+          [label]="'From'"
+          [inputControl]="formGroup.controls.dateFrom"
+        />
+        <app-calendar
+          class="max-w-3xl"
+          [label]="'To'"
+          [inputControl]="formGroup.controls.dateTo"
+        />
+      </section>
+    </section>
+  </mat-card>
+}

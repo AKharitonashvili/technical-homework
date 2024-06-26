@@ -5,7 +5,12 @@
     class="w-full"
     (click)="datepicker.open()"
   >
-    <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" />
+    <input
+      matInput
+      [matDatepicker]="datepicker"
+      placeholder="mm/dd/yyyy"
+      [formControl]="inputControl"
+    />
     <mat-datepicker-toggle
       matIconSuffix
       [for]="datepicker"

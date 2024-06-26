@@ -1,36 +1,12 @@
-<section class="flex flex-col gap-4">
-  <app-button class="max-w-3xl" [text]="'Add Job'" />
-  <mat-card appearance="outlined">
-    <section class="flex flex-col gap-4 p-4">
-      <app-button class="max-w-sm" [text]="'Remove job'" [color]="'warn'" />
-
-      <app-input [label]="'Enter company name'" />
-
-      <app-input [label]="'Enter company web page'" />
-
-      <app-textarea [label]="'Enter company description'" />
-
-      <app-button [text]="'Add Position'" />
-
-      <mat-card appearance="outlined" class="secondary-card">
-        <section class="flex flex-col gap-4 p-4">
-          <app-button class="max-w-sm" [text]="'Remove job'" [color]="'warn'" />
-
-          <app-autocomplete-input
-            [label]="'Enter position name'"
-            [autoCompleteOptions]="['Junion', 'Middle', 'Senior']"
-          />
-
-          <app-input [label]="'Enter position level'" />
-
-          <app-textarea [label]="'Enter position description'" />
-
-          <section class="flex justify-between gap-4">
-            <app-calendar class="max-w-3xl" [label]="'From'" />
-            <app-calendar class="max-w-3xl" [label]="'To'" />
-          </section>
-        </section>
-      </mat-card>
-    </section>
-  </mat-card>
+<section class="flex flex-col gap-8 px-10 py-4">
+  <app-button class="max-w-3xl" [text]="'Add Job'" (click)="addCompanyForm()" />
+  @for (formGroup of jobFormArray.controls; track $index) {
+    <app-job-card
+      [formGroup]="formGroup"
+      (removeJob)="removeJob($index)"
+      (addPosition)="addPosition($index)"
+      (removePosition)="removePosition($event, $index)"
+    />
+    <hr />
+  }
 </section>

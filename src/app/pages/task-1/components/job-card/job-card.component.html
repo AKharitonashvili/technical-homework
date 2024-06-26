@@ -1,0 +1,49 @@
+<section class="flex flex-col gap-4">
+  @if (formGroup) {
+    <form [formGroup]="formGroup">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <h1 class="text-3xl font-bold">Job Form</h1>
+        </mat-card-header>
+        <section class="flex flex-col gap-4 p-4">
+          <app-button
+            class="max-w-sm"
+            [text]="'Remove job'"
+            [color]="'warn'"
+            (click)="removeJob.emit()"
+          />
+
+          <app-input
+            [label]="'Enter company name'"
+            [formGroup]="formGroup"
+            [inputControl]="formGroup.controls.companyName"
+          />
+
+          <app-input
+            [label]="'Enter company web page'"
+            [formGroup]="formGroup"
+            [inputControl]="formGroup.controls.companyWebPage"
+          />
+
+          <app-textarea
+            [label]="'Enter company description'"
+            [inputControl]="formGroup.controls.companyDescription"
+          />
+
+          <app-button [text]="'Add Position'" (click)="addPosition.emit()" />
+
+          <section class="flex flex-col gap-4">
+            <h3 class="text-3xl font-bold">Positions</h3>
+            @for (item of formGroup.controls.positions.controls; track $index) {
+              <app-job-position
+                [formGroup]="item"
+                (removePosition)="removePosition.emit($index)"
+              />
+              <hr />
+            }
+          </section>
+        </section>
+      </mat-card>
+    </form>
+  }
+</section>
