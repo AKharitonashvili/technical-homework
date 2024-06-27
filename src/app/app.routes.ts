@@ -16,5 +16,29 @@ export const routes: Routes = [
       provideHttpClient(withInterceptors([keyInterceptorInterceptor])),
     ],
   },
+  {
+    path: 'task-3',
+    loadComponent: () =>
+      import('./pages/task-3/task-3.component').then((x) => x.Task3Component),
+    providers: [
+      provideHttpClient(withInterceptors([keyInterceptorInterceptor])),
+    ],
+  },
+  {
+    path: 'task-4',
+    loadComponent: () =>
+      import('./pages/task-4/task-4.component').then((x) => x.Task4Component),
+    providers: [
+      provideHttpClient(withInterceptors([keyInterceptorInterceptor])),
+    ],
+  },
+  {
+    path: 'task-5',
+    loadComponent: () =>
+      import('./pages/task-5/task-5.component').then((x) => x.Task5Component),
+    providers: [
+      provideHttpClient(withInterceptors([keyInterceptorInterceptor])),
+    ],
+  },
   { path: '', redirectTo: '/task-1', pathMatch: 'full' },
 ];
