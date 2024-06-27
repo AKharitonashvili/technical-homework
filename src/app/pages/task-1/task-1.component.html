@@ -8,6 +8,7 @@
           target="_blank"
           [ngClass]="{ 'text-blue-400': jobFormValue.companyWebPage }"
           [href]="jobFormValue.companyWebPage"
+          [matTooltip]="jobFormValue.companyWebPage!"
         >
           {{ jobFormValue.companyName | uppercase }}
         </a>

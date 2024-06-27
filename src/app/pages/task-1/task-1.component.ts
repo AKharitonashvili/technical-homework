@@ -19,6 +19,7 @@ import { DatePipe, NgClass, UpperCasePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { positionLevelValidator } from '../../shared/validators/position.validators';
 import { urlValidator } from '../../shared/validators/urls.validators';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-task-1',
@@ -35,6 +36,7 @@ import { urlValidator } from '../../shared/validators/urls.validators';
     NgClass,
     MatDividerModule,
     DatePipe,
+    MatTooltipModule,
   ],
   templateUrl: './task-1.component.html',
   styleUrl: './task-1.component.scss',

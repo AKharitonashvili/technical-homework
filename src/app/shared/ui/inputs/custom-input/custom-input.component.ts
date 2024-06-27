@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-input',
   standalone: true,
   imports: [],
   templateUrl: './custom-input.component.html',
-  styleUrl: './custom-input.component.scss',
+  styleUrls: ['./custom-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -16,29 +16,33 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class CustomInputComponent {
+export class CustomInputComponent implements ControlValueAccessor {
   value: string = '';
+  isDisabled: boolean = false;
 
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  onChange: (value: string) => void = () => {};
+  onTouched: () => void = () => {};
 
-  onInput(event: any): void {
-    this.value = event.target.value;
+  onInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.value = inputElement.value;
     this.onChange(this.value);
     this.onTouched();
   }
 
-  writeValue(value: any): void {
+  writeValue(value: string): void {
     this.value = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {}
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+  }
 }
