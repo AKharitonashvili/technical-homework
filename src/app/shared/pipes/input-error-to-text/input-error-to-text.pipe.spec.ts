@@ -1,4 +1,4 @@
-import { InputErrorToTextPipe } from './input-error-to-text.pipe';
+import { InputErrorToTextPipe } from '../input-error-to-text.pipe';
 
 describe('InputErrorToTextPipe', () => {
   it('create an instance', () => {

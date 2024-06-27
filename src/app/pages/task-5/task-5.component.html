@@ -1,1 +1,31 @@
-<p>task-5 works!</p>
+<section class="flex p-4">
+  <mat-card appearance="outlined" class="flex w-full flex-col gap-4 p-4">
+    <form [formGroup]="formGroup" class="flex flex-col gap-4 py-4">
+      <app-input
+        [label]="'Matcher keyword input'"
+        [placeholder]="
+          'Type keyword to find out how much percentage is in array of strings'
+        "
+        [inputControl]="formGroup.controls.input1"
+      />
+      <app-array-input
+        [label]="'Array of strings'"
+        [inputControl]="formGroup.controls.input2"
+      />
+    </form>
+  </mat-card>
+</section>
+@if (vm$ | async; as vm) {
+  <section class="flex flex-col gap-4 p-4">
+    <h1>Result:</h1>
+    <mat-divider />
+    <section class="flex flex-col gap-4">
+      @for (item of vm.result | parseInputsToDisplay; track $index) {
+        <p>
+          {{ item[0] }}: <span class="text-red-500">{{ item[1] }}</span>
+        </p>
+        <mat-divider />
+      }
+    </section>
+  </section>
+}

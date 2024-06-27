@@ -1,4 +1,4 @@
-import { TitleTypeToTextPipe } from './title-type-to-text.pipe';
+import { TitleTypeToTextPipe } from '../input-error-to-text/title-type-to-text.pipe';
 
 describe('TitleTypeToTextPipe', () => {
   it('create an instance', () => {

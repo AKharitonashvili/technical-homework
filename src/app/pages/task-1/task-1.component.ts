@@ -45,7 +45,7 @@ export class Task1Component {
     FormGroup<JobFormArray>
   >([]);
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.jobFormArray.push(this.generateCompanyForm());
   }
 

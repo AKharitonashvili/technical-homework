@@ -10,4 +10,14 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './task-3.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Task3Component {}
+export class Task3Component {
+  dateInputs: string[] = [
+    '2023-08-10T09:42:34.0734574Z',
+    '08/10/2023',
+    '10 Aug 2023',
+    'Hello, World!',
+    '2023-08-10T09:42:34Z',
+    '2023-08-10T09:42:34+02:00',
+    '2023-08-10',
+  ];
+}

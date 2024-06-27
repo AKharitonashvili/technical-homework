@@ -3,7 +3,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CustomInputComponent } from '../custom-input/custom-input.component';
-import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text.pipe';
+import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text/input-error-to-text.pipe';
 
 @Component({
   selector: 'app-custom-input-form-field',

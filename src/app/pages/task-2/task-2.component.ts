@@ -11,7 +11,7 @@ import { ButtonComponent } from '../../shared/ui/buttons/button/button.component
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { ImageFallBackDirective } from '../../shared/directives/image-fallback/image-fall-back.directive';
-import { TitleTypeToTextPipe } from '../../shared/pipes/input-error-to-text/title-type-to-text.pipe';
+import { TitleTypeToTextPipe } from '../../shared/pipes/title-type-to-text/title-type-to-text.pipe';
 
 @Component({
   selector: 'app-task-2',

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text.pipe';
+import { InputErrorToTextPipe } from '../../../pipes/input-error-to-text/input-error-to-text.pipe';
 
 @Component({
   selector: 'app-textarea',

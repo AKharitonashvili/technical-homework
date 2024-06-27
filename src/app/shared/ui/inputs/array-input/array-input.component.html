@@ -1,0 +1,23 @@
+<mat-form-field [floatLabel]="'always'" class="w-full">
+  <mat-label>{{ label }}</mat-label>
+  <mat-chip-grid
+    #chipGrid
+    aria-label="Enter keywords"
+    [formControl]="inputControl"
+  >
+    @for (keyword of keywords(); track keyword) {
+      <mat-chip-row (removed)="removeKeyword(keyword)">
+        {{ keyword }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+  </mat-chip-grid>
+  <input
+    placeholder="Array of Strings"
+    [matChipInputFor]="chipGrid"
+    (matChipInputTokenEnd)="add($event)"
+  />
+  <mat-hint>Type keyword and press enter to add keyword into array</mat-hint>
+</mat-form-field>
