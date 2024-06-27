@@ -4,7 +4,7 @@ import { InputComponent } from '../../shared/ui/inputs/input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ArrayInputComponent } from '../../shared/ui/inputs/array-input/array-input.component';
 import { Observable, combineLatest, debounceTime, map, startWith } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { ParseInputsToDisplayPipe } from '../../shared/pipes/parse-inputs-to-display/parse-inputs-to-display.pipe';
 import { MatDividerModule } from '@angular/material/divider';
 import { getSimilarityPercentages } from '../../shared/utils/matcher-calculator';
@@ -24,6 +24,7 @@ interface MatchingForm {
     AsyncPipe,
     ParseInputsToDisplayPipe,
     MatDividerModule,
+    NgClass,
   ],
   templateUrl: './task-5.component.html',
   styleUrl: './task-5.component.scss',

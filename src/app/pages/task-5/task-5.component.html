@@ -22,7 +22,13 @@
     <section class="flex flex-col gap-4">
       @for (item of vm.result | parseInputsToDisplay; track $index) {
         <p>
-          {{ item[0] }}: <span class="text-red-500">{{ item[1] }}</span>
+          {{ item[0] }}:
+          <span
+            class="text-red-500"
+            [ngClass]="item[1] > 50 ? 'text-green-400' : 'text-red-400'"
+          >
+            {{ item[1] }}%
+          </span>
         </p>
         <mat-divider />
       }

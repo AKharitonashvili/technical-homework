@@ -40,6 +40,6 @@ export const getSimilarityPercentages = (
 ): { [key: string]: string }[] => {
   return input2.map((item) => {
     const percentage = similarityPercentage(input1, item);
-    return { [item]: `${percentage.toFixed(2)}%` };
+    return { [item]: `${percentage.toFixed(2)}` };
   });
 };

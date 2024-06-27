@@ -1,16 +1,4 @@
 <section class="flex flex-col gap-8 px-10 py-4">
-  <app-button class="max-w-3xl" [text]="'Add Job'" (click)="addCompanyForm()" />
-  @for (jobFormGroup of jobFormArray.controls; track $index) {
-    <app-job-card
-      [formGroup]="jobFormGroup"
-      (removeJob)="removeJob($index)"
-      (addPosition)="addPosition($index)"
-      (removePosition)="removePosition($event, $index)"
-    />
-    <mat-divider />
-  }
-</section>
-<section class="flex flex-col gap-8 px-10 py-4">
   <h1 class="text-3xl font-bold">Result:</h1>
   @for (jobFormValue of jobFormArray.value; track $index) {
     <section class="flex flex-col gap-2">
@@ -47,6 +35,19 @@
         }
       </section>
     </section>
+    <mat-divider />
+  }
+</section>
+
+<section class="flex flex-col gap-8 px-10 py-4">
+  <app-button class="max-w-3xl" [text]="'Add Job'" (click)="addCompanyForm()" />
+  @for (jobFormGroup of jobFormArray.controls; track $index) {
+    <app-job-card
+      [formGroup]="jobFormGroup"
+      (removeJob)="removeJob($index)"
+      (addPosition)="addPosition($index)"
+      (removePosition)="removePosition($event, $index)"
+    />
     <mat-divider />
   }
 </section>
