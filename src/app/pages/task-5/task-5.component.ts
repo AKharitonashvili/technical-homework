@@ -55,8 +55,5 @@ export class Task5Component {
           return getSimilarityPercentages(input1, input2);
         }),
       ),
-    ]).pipe(
-      map(([result]) => ({ result })),
-      tap(console.log),
-    );
+    ]).pipe(map(([result]) => ({ result })));
 }

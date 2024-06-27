@@ -41,7 +41,6 @@ export class CustomCalendarComponent {
 
   ngOnInit() {
     this.generateCalendar();
-    console.log(this.holidays.map((v) => new Date(v)));
   }
 
   generateCalendar() {
