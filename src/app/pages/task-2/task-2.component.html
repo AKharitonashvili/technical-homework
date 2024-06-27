@@ -25,29 +25,45 @@
         </section>
       </mat-card>
     } @else {
-      <section class="grid grid-cols-2 gap-4 md:grid-cols-4">
-        @for (movie of vm.movies; track $index) {
-          <mat-card appearance="outlined" class="p-4">
-            <mat-card-header>
-              <section class="flex h-32 flex-col gap-1">
-                <h1>{{ movie.title }}</h1>
-                <h1 class="text-gray-500">
-                  {{ movie.titleType | titleTypeToText }}
-                </h1>
-              </section>
-            </mat-card-header>
-            <div class="p-4">
-              <img
-                class="h-[18.75rem] w-full rounded-md"
-                mat-card-image
-                [src]="movie.image?.url"
-                alt=""
-                appImageFallBack
-              />
-            </div>
-          </mat-card>
-        }
-      </section>
+      @if (vm.movies.length > 0) {
+        <section class="grid grid-cols-2 gap-4 md:grid-cols-4">
+          @for (movie of vm.movies; track $index) {
+            <mat-card appearance="outlined" class="p-4">
+              <mat-card-header>
+                <section class="flex h-32 flex-col gap-1">
+                  <h1>{{ movie.title }}</h1>
+                  <h1 class="text-gray-500">
+                    {{ movie.titleType | titleTypeToText }}
+                  </h1>
+                </section>
+              </mat-card-header>
+              <div class="p-4">
+                <img
+                  class="h-[18.75rem] w-full rounded-md"
+                  mat-card-image
+                  [src]="movie.image?.url"
+                  alt=""
+                  appImageFallBack
+                />
+              </div>
+            </mat-card>
+          }
+        </section>
+      } @else {
+        <mat-card
+          appearance="outlined"
+          class="flex w-full items-center justify-center p-4"
+        >
+          <section
+            class="flex max-w-sm items-center gap-4 rounded-md border border-solid border-gray-500 fill-gray-500 p-4 text-gray-500"
+          >
+            <mat-icon>
+              <span class="material-symbols-outlined"> search </span>
+            </mat-icon>
+            <div>Type title in search to fetch movies</div>
+          </section>
+        </mat-card>
+      }
     }
   </section>
 }

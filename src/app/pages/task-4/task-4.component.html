@@ -1,1 +1,21 @@
-<p>task-4 works!</p>
+<section class="flex flex-col items-center justify-center p-4">
+  <app-custom-calendar [holidays]="globalHolidays" />
+  <section class="flex w-full max-w-lg flex-col gap-4 p-4">
+    <div class="flex items-center">
+      <div
+        class="mr-2 h-[2.8125rem] w-[2.75rem] border border-solid border-gray-700 bg-green-400 p-2"
+      ></div>
+      <div>- Current Day</div>
+    </div>
+    <div class="flex items-center">
+      <div class="mr-2 border border-solid border-gray-700 p-2">Day</div>
+      <div>- Normal Day</div>
+    </div>
+    <div class="flex items-center">
+      <div class="mr-2 border border-solid border-gray-700 p-2 text-gray-400">
+        Day
+      </div>
+      <div>- Holiday</div>
+    </div>
+  </section>
+</section>
