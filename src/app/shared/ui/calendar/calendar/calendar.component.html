@@ -11,6 +11,8 @@
       placeholder="mm/dd/yyyy"
       [formControl]="inputControl"
       readonly
+      [max]="maxDate"
+      [min]="minDate"
     />
     <mat-datepicker-toggle
       matIconSuffix

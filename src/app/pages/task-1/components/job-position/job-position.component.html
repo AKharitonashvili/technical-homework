@@ -29,11 +29,13 @@
           class="max-w-3xl"
           [label]="'From'"
           [inputControl]="formGroup.controls.dateFrom"
+          [maxDate]="formGroup.controls.dateTo.value"
         />
         <app-calendar
           class="max-w-3xl"
           [label]="'To'"
           [inputControl]="formGroup.controls.dateTo"
+          [minDate]="formGroup.controls.dateFrom.value"
         />
       </section>
     </section>

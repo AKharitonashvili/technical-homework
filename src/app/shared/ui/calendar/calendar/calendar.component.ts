@@ -23,4 +23,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class CalendarComponent {
   @Input() label!: string;
   @Input({ required: true }) inputControl!: FormControl;
+  @Input() minDate!: string;
+  @Input() maxDate!: string;
 }
