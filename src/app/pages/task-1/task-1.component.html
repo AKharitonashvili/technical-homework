@@ -27,7 +27,7 @@
       <div>
         <h3>Description: {{ jobFormValue.companyDescription }}</h3>
       </div>
-      <section class="grid grid-cols-3 gap-4 md:grid-cols-4">
+      <section class="grid grid-cols-1 gap-4 md:grid-cols-4">
         @for (item of jobFormValue.positions; track $index) {
           <div class="rounded-md border border-solid border-gray-600 p-4">
             <div class="flex justify-between gap-4">
