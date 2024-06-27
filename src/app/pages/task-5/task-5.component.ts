@@ -3,7 +3,14 @@ import { MatCardModule } from '@angular/material/card';
 import { InputComponent } from '../../shared/ui/inputs/input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ArrayInputComponent } from '../../shared/ui/inputs/array-input/array-input.component';
-import { Observable, combineLatest, debounceTime, map, startWith } from 'rxjs';
+import {
+  Observable,
+  combineLatest,
+  debounceTime,
+  map,
+  startWith,
+  tap,
+} from 'rxjs';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ParseInputsToDisplayPipe } from '../../shared/pipes/parse-inputs-to-display/parse-inputs-to-display.pipe';
 import { MatDividerModule } from '@angular/material/divider';
@@ -48,5 +55,8 @@ export class Task5Component {
           return getSimilarityPercentages(input1, input2);
         }),
       ),
-    ]).pipe(map(([result]) => ({ result })));
+    ]).pipe(
+      map(([result]) => ({ result })),
+      tap(console.log),
+    );
 }

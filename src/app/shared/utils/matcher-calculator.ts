@@ -1,45 +1,37 @@
 const levenshteinDistance = (a: string, b: string): number => {
-  const matrix = [];
-
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i];
-  }
-
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j;
-  }
-
+  const matrix: number[][] = Array.from({ length: b.length + 1 }, (_, i) => [
+    i,
+  ]);
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
   for (let i = 1; i <= b.length; i++) {
     for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1];
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1, // substitution
-          Math.min(
-            matrix[i][j - 1] + 1, // insertion
-            matrix[i - 1][j] + 1, // deletion
-          ),
-        );
-      }
+      matrix[i][j] =
+        b[i - 1] === a[j - 1]
+          ? matrix[i - 1][j - 1]
+          : Math.min(
+              matrix[i - 1][j - 1] + 1,
+              matrix[i][j - 1] + 1,
+              matrix[i - 1][j] + 1,
+            );
     }
   }
-
   return matrix[b.length][a.length];
 };
 
-const similarityPercentage = (a: string, b: string): number => {
-  const distance = levenshteinDistance(a, b);
-  const maxLength = Math.max(a.length, b.length);
-  return ((maxLength - distance) / maxLength) * 100;
-};
+const similarityPercentage = (a: string, b: string): number =>
+  ((Math.max(a.length, b.length) - levenshteinDistance(a, b)) /
+    Math.max(a.length, b.length)) *
+  100;
 
 export const getSimilarityPercentages = (
   input1: string,
   input2: string[],
 ): { [key: string]: string }[] => {
+  const lowerInput1 = input1.toLowerCase();
   return input2.map((item) => {
-    const percentage = similarityPercentage(input1, item);
-    return { [item]: `${percentage.toFixed(2)}` };
+    const lowerItem = item.toLowerCase();
+    return {
+      [item]: `${similarityPercentage(lowerInput1, lowerItem).toFixed(2)}`,
+    };
   });
 };
